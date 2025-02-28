@@ -42,8 +42,8 @@ const ans=mydata.map((key)=>{
      <Card.Body>
         <Card.Title>{key.specilization}</Card.Title>
         <Card.Text>
-        {key.name}
-        {key.email}
+        {key.name}<br/>
+        {key.email}<br/>
         {key.city}
         </Card.Text>
         <Button variant="primary" onClick={()=>{handleShow(key._id)}}>Go Appointment</Button>
