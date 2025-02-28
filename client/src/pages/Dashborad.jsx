@@ -6,7 +6,7 @@ const DashBorad=()=>{
         <>
       <div style={{width:"100%", backgroundColor:"lightblue", height:"40", textAlign:"center"}}>
         <h4>WelCome to AdminDasborad </h4>{localStorage.getItem("username")}  Email: {localStorage.getItem("email")}</div> 
-      <div style={{display:"flex",textAlign:"center"}}>
+      <div style={{display:"flex"}}>
         <div style={{width:"20%", backgroundColor:"blue", height:"100vh", color:"yellow", paddingTop:"50px"}}>
 <ul>
     <li><Nav.Link as={Link} to="displaydata">Display User</Nav.Link></li><br/>
@@ -16,8 +16,10 @@ const DashBorad=()=>{
 </ul>
 
         </div>
-        <div style={{width:"80%", height:"100vh",textAlign:"center"}}></div>
+        <div style={{width:"80%", height:"100vh",textAlign:"center"}}>
         <Outlet/>
+        </div>
+    
         </div> 
         </>
     )

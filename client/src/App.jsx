@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import DashBorad from "./pages/Dashborad";
 import DisplayData from "./pages/DispalyData";
 import Update from "./pages/Update";
+import EditDate from "./pages/EditDate";
+import Search from "./pages/Search";
 
 const App=()=>{
   return(
@@ -19,6 +21,8 @@ const App=()=>{
     <Route path="dashborad"element={<DashBorad/>}>
     <Route path="displaydata" element={<DisplayData/>}/>
     <Route path="update" element={<Update/>}/>
+    <Route path="edit/:id" element={<EditDate/>}/>
+    <Route path="search" element={<Search/>}/>
     </Route>
    </Routes>
    </BrowserRouter>

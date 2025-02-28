@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 const EditDate=()=>{
@@ -11,7 +13,7 @@ const EditDate=()=>{
 
     const loadData = () => {
         let api = "http://localhost:8000/admin/editdatadisplay";
-        axios.post(api, { id: id }).then((res) => {
+        axios.post(api, { id: id}).then((res) => {
           setInput(res.data);
         });
       };
@@ -26,11 +28,11 @@ const EditDate=()=>{
         setInput((values) => ({ ...values, [name]: value }));
       };
       const handleSubmit = () => {
-        let api = "https://curd-operation-mern-loginsystem-5.onrender.com/books/editdatasave";
+        let api = "http://localhost:8000/admin/editdatasave";
         axios.post(api, input).then((res) => {
           console.log(res.data);
           alert("Data Successfully Updated");
-          navigate("/dashboard/update");
+          navigate("/dashborad/update");
         });
       };
 

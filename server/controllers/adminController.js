@@ -50,9 +50,37 @@ const DeleteData=async(req,res)=>{
   res.send(user)
 }
 
+const EditDataDisplay=async(req, res)=>{
+  const {id}=req.body
+ const Data= await AdminModel.findById(id)
+ res.send(Data)
+}
+const EditDataSave=async(req,res)=>{
+  const {_id, name, email, city, password}=req.body
+    const Data= await AdminModel.findByIdAndUpdate(_id,{
+      name:name,
+      email:email,
+      city:city,
+      password:password
+    })
+  res.send(Data)
+}
+
+const DataSearch=async(req,res)=>{
+ //console.log(req.body)
+   const{input}=req.body;
+   const mydata= await AdminModel.find({"name" : {$regex:input , $options: "i"}});
+   res.send(mydata)
+}
+
+
+
 module.exports={
     AdminSignin,
     Login,
     DisplayData,
-    DeleteData
+    DeleteData,
+    EditDataDisplay,
+    EditDataSave,
+    DataSearch
 }

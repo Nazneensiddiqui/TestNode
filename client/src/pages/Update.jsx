@@ -36,7 +36,7 @@ const deleteData=(id)=>{
    }
 
    const editData=(id)=>{
-    navigate(`/edit/${id}`)
+    navigate(`/dashborad/edit/${id}`)
    }
 
 const ans=mydata.map((key)=>{
