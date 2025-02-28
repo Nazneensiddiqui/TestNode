@@ -1,7 +1,15 @@
 import Nav from 'react-bootstrap/Nav';
 import { Link, Outlet } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 const DashBorad=()=>{
+const navigate=useNavigate()
+
+const Logout=()=>{
+  localStorage.clear()
+  navigate("/login")
+}
+
     return(
         <>
       <div style={{width:"100%", backgroundColor:"lightblue", height:"40", textAlign:"center"}}>
@@ -12,7 +20,7 @@ const DashBorad=()=>{
     <li><Nav.Link as={Link} to="displaydata">Display User</Nav.Link></li><br/>
     <li> <Nav.Link as={Link} to="update">Update</Nav.Link></li><br/>
     <li> <Nav.Link as={Link} to="search">Search</Nav.Link></li><br/>
-    <li> <Button>Logout</Button></li><br/><br/>
+    <li> <Button onClick={Logout}>Logout</Button></li><br/><br/>
 </ul>
 
         </div>
