@@ -1,14 +1,17 @@
-const AdminModel=require("../models/adminModel")
+const DoctorModel=require("../models/adminModel")
+const PatientModel=require("../models/patientModel")
 const bcrypt=require("bcryptjs")
 
-const AdminSignin=async(req,res)=>{
-  const  {name,email,city,password}=req.body
+const Signin=async(req,res)=>{
+  const  {name,specilist,email,city,password}=req.body
+ 
     try {
       const hashedPassword = await bcrypt.hash(password, 8);
-        const User=await AdminModel.create({
+        const User=await DoctorModel.create({
             name:name,
             email:email,
             city:city,
+            specilization:specilist,
             password:hashedPassword
         })
         res.status(200).send("ok")
@@ -20,7 +23,7 @@ const AdminSignin=async(req,res)=>{
 const Login=async(req,res)=>{
  const { email, password }=req.body
   try {
-    const User=await AdminModel.findOne({email:email})
+    const User=await DoctorModel.findOne({email:email})
     console.log(User)
   if(!User)
   {
@@ -39,48 +42,42 @@ const Login=async(req,res)=>{
 }
 
 const DisplayData=async(req,res)=>{
- const User= await AdminModel.find()
+ const User= await DoctorModel.find()
  res.send(User)
-  
 }
 
-const DeleteData=async(req,res)=>{
- const {id}=req.body
- const user= await AdminModel.findByIdAndDelete(id)
-  res.send(user)
-}
-
-const EditDataDisplay=async(req, res)=>{
-  const {id}=req.body
- const Data= await AdminModel.findById(id)
- res.send(Data)
-}
-const EditDataSave=async(req,res)=>{
-  const {_id, name, email, city, password}=req.body
-    const Data= await AdminModel.findByIdAndUpdate(_id,{
+const patientSave=async(req,res)=>{
+ const {name,illness,email,city}=req.body
+ try {
+  const patient=await PatientModel.create({
       name:name,
       email:email,
       city:city,
-      password:password
+      illness:illness,
+     
     })
-  res.send(Data)
+    res.status(200).send("ok")
+} catch (error) {
+  console.log(error)  
+}
 }
 
-const DataSearch=async(req,res)=>{
- //console.log(req.body)
-   const{input}=req.body;
-   const mydata= await AdminModel.find({"name" : {$regex:input , $options: "i"}});
-   res.send(mydata)
-}
+const patientDisplay=async(req,res)=>{
+  const User= await PatientModel.find()
+  res.send(User)
+ }
+
+
+
+
 
 
 
 module.exports={
-    AdminSignin,
-    Login,
-    DisplayData,
-    DeleteData,
-    EditDataDisplay,
-    EditDataSave,
-    DataSearch
+  Signin,
+  Login,
+  DisplayData,
+  patientSave,
+  patientDisplay
+   
 }

@@ -13,6 +13,7 @@ const TopNavbar=()=>{
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" style={{marginLeft:"200px"}}>
+          <Nav.Link as={Link} to="home">Home</Nav.Link>
             <Nav.Link as={Link} to="login">Login</Nav.Link>
             <Nav.Link as={Link} to="signup">SignUp</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">

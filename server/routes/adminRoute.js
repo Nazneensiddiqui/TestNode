@@ -1,12 +1,11 @@
 const express=require("express")
 const route=express.Router()
-const AdminController=require("../controllers/adminController")
+const DoctorController=require("../controllers/adminController")
 
-route.post("/adminsingup",AdminController.AdminSignin)
-route.post("/login",AdminController.Login)
-route.get("/displaydata",AdminController.DisplayData)
-route.post("/deletedata",AdminController.DeleteData)
-route.post("/editdatadisplay", AdminController.EditDataDisplay)
-route.post("/editdatasave",AdminController.EditDataSave)
-route.post("/datasearch",AdminController.DataSearch)
+route.post("/signin",DoctorController.Signin)
+ route.post("/login",DoctorController.Login)
+ route.get("/displaydoctor",DoctorController.DisplayData)
+ route.post("/patient",DoctorController.patientSave)
+ route.get("/displaydata", DoctorController.patientDisplay)
+
 module.exports=route

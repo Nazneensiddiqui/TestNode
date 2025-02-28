@@ -7,7 +7,7 @@ const DisplayData=()=>{
     const [mydata, setMydata]=useState([])
 
     const loadData=async()=>{
-        let api="http://localhost:8000/admin/displaydata";
+        let api="http://localhost:8000/doctor/displaydata";
         try {
             const response=await axios.get(api)
             setMydata(response.data)
@@ -28,6 +28,7 @@ const ans=mydata.map((key)=>{
         <td>{key.name}</td>
         <td>{key.email}</td>
         <td>{key.city}</td>
+        <td>{key.illness}</td>
          </tr> 
         
         </>
@@ -44,6 +45,7 @@ const ans=mydata.map((key)=>{
          <th> Name</th>
           <th>Email</th>
           <th>City</th>
+          <th>Illness</th>
         </tr>
       </thead>
       <tbody>
