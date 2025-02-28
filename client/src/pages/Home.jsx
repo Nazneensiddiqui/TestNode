@@ -17,7 +17,8 @@ const Home=()=>{
 
 
     const loadData=async()=>{
-        let api="http://localhost:8000/doctor/displaydoctor";
+       // let api="http://localhost:8000/doctor/displaydoctor";
+        let api="https://testnode-kr7v.onrender.com/doctor/displaydoctor";
         try {
             const response=await axios.get(api)
             setMydata(response.data)
@@ -64,7 +65,8 @@ const handleInput=(e)=>{
 }
 
 const handleSubmit=async()=>{
-let api="http://localhost:8000/doctor/patient";
+//let api="http://localhost:8000/doctor/patient";
+let api="https://testnode-kr7v.onrender.com/doctor/patient";
 try {
    const response= await axios.post(api, input)
    console.log(response.data)

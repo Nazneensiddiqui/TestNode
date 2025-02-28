@@ -14,7 +14,8 @@ const SignUp=()=>{
     }
 
     const handleSubmit=async()=>{
-    let api="http://localhost:8000/doctor/signin";
+//let api="http://localhost:8000/doctor/signin";
+    let api="https://testnode-kr7v.onrender.com/doctor/signin";
     try {
        const response= await axios.post(api, input)
        console.log(response.data)
